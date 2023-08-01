@@ -26,3 +26,26 @@ spec:
 위와 같이 쿠버네티스에서는 컨테이너를 정의할 때 command와 args를 이용하여 ENTRYPOINT, CMD를 각각 재정의한다.
 
 ## 컨테이너의 환경변수 설정
+### 컨테이너 정의에 환경변수 지정
+``` yaml
+kind: Pod
+spec:
+  containers:
+  - image: luksa/fortune:env
+    env:
+    - name: INTERVAL
+      value: "30"
+    name: html-generator
+...
+```
+
+### 변수 값에서 다른 환경변수 참조
+``` yaml
+env:
+- name: FIRST_VAR
+  value: "foo"
+- name: SECOND_VAR
+  value: "$(FIRST_VAR)bar"
+```
+
+## 컨피그맵으로 설정 분리
