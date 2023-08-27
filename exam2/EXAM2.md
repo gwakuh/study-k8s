@@ -314,5 +314,5 @@ $ kubectl get pods --sort-by=".metadata.creationTimestamp"
 
 15. List all the pods sorted by name
 ```sh
-$ kubectl get pods --sort-by=".metadata.name
+$ kubectl get pods --sort-by=".metadata.name"
 ```
